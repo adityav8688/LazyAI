@@ -1,0 +1,213 @@
+:root {
+    --bg-black: black;
+    --bg-head: rgb(30, 30, 30);
+    --bg-main: rgb(60, 60, 60);
+    --muted: rgb(100, 100, 100);
+    --head-btn-pad: 5px;
+    --head-btn-br: 5px;
+    --gradient: linear-gradient(to right, rgb(59, 59, 252), pink);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 98vh;
+    color: white;
+}
+
+body {
+    background-color: var(--bg-black);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+    position: sticky;
+    top: 1px;
+    background-color: rgb(0, 0, 0, 0);
+    backdrop-filter: blur(1rem);
+    font-size: larger;
+    z-index: 100;
+}
+
+.container {
+    width: calc(100%);
+    font-size: small;
+}
+
+.sidebarBtn>button,
+.loginOrSignin>button,
+.inputBtns>button,
+.sideHead>button {
+    display: flex;
+    align-items: center;
+    height: calc(100%);
+    color: white;
+    border-radius: var(--head-btn-br);
+    padding: var(--head-btn-pad);
+    background-color: var(--bg-head);
+    border: none;
+}
+
+.material-symbols-outlined {
+    font-size: 20px;
+}
+
+.sidebarBtn :hover,
+.loginOrSignin :hover {
+    background-color: var(--muted);
+}
+
+.appIcon {
+    color: white;
+}
+
+main {
+    background-color: var(--bg-black);
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: white;
+    background-color: var(--bg-black);
+
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+#sidebar.open {
+    transform: translateX(0);
+}
+
+
+.sideHead {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sideNew {
+    display: flex;
+    flex-direction: column;
+}
+
+.newChat {
+    display: flex;
+    justify-content: space-between;
+    margin-left: calc(10%);
+    padding: 1rem;
+    width: calc(80%);
+    border: 1px solid var(--bg-main);
+    border-radius: 1rem;
+}
+
+.sideFoot {
+    padding: 1rem;
+}
+
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.basic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.basicCnt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    background-color: var(--bg-black);
+    padding: 3rem 2rem 3rem 2rem;
+}
+
+.sugChips {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.chip1,
+.chip2,
+.chip3,
+.chip4 {
+    padding: 1rem;
+    background-color: var(--bg-head);
+    border: 1px solid var(--bg-main);
+    margin: 1rem;
+    border-radius: 0.25rem;
+    display: grid;
+    font-size: smaller;
+    &:hover {
+        border: 1px solid rgb(147, 0, 205);
+        box-shadow: 0 0 15px rgb(240, 126, 255);
+    }
+
+    >span {
+        font-size: 1.5rem;
+    }
+}
+
+.inputBar {
+    display: flex;
+    flex-direction: column;
+    min-width: calc(90%);
+    position: fixed;
+    bottom: 20px;
+    left: calc(5%);
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--bg-head);
+    border: 1px solid var(--bg-main);
+}
+
+#userInput {
+    width: calc(100%);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin: 0rem 0rem 1rem 0rem;
+    background-color: var(--bg-head);
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.inputBtns {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(height > 750px){
+    .basic{
+        top: 5rem;
+    }
+}
+@media(height>950px){
+    .basic{
+        margin-top: 10rem;
+    }
+}
+@media(height>1150px){
+    .basic{
+        margin-top:15rem;
+    }
+}
