@@ -45,14 +45,13 @@
             </div>
         </header>
         <div class="container">
-
             <main>
                 <div class="basic">
-                    <div class="basicCnt">
+                    <div class="basicCnt" id="remove-1">
                         <h1>How can I help you?</h1>
                         <p>Ask me anything - write a code, ideas, or just a quick question.</p>
                     </div>
-                    <div class="sugChips">
+                    <div class="sugChips" id="remove-2">
                         <div class="chip1">
                             <span>✍️</span>
                             <h3>Write for me</h3>
@@ -74,18 +73,18 @@
                             <p>simple breakdowns</p>
                         </div>
                     </div>
-                    <div class="inputBar">
+                </div>
+                <div class="inputBar">
                         <div>
-                            <div>
-                                <input type="text" id="userInput" placeholder="Ask anything...">
+                            <div class="userInputDiv">
+                                <textarea type="text" id="userInput" placeholder="Ask anything..."></textarea>
                             </div>
                             <div class="inputBtns">
                                 <button><span class="material-symbols-outlined">attach_file</span></button>
-                                <button><span class="material-symbols-outlined">send</span></button>
+                                <button id="sendBtn"><span class="material-symbols-outlined">send</span></button>
                             </div>
                         </div>
                     </div>
-                </div>
             </main>
             <footer>
                 <div class="footnote">
