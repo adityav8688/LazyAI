@@ -1,10 +1,13 @@
 :root {
     --bg-black: black;
+    --bg-black-op: rgba(0, 0, 0, 0.5);
     --bg-head: rgb(30, 30, 30);
     --bg-main: rgb(60, 60, 60);
     --muted: rgb(100, 100, 100);
     --head-btn-pad: 5px;
     --head-btn-br: 5px;
+    --user-msg-br: 0.75rem 0.75rem 0.25rem 0.75rem;
+    --ai-msg-br: 0.75rem 0.75rem 0.75rem 0.25rem;
     --gradient: linear-gradient(to right, rgb(59, 59, 252), pink);
 }
 
@@ -28,18 +31,26 @@ body {
 }
 
 header {
-    position: absolute;
-    width: 100%;
+    position: sticky;
+    width: 100dvw;
     top: 1px;
-    background-color: rgb(0, 0, 0, 0);
+    background-color: var(--bg-black-op);
     backdrop-filter: blur(1rem);
     font-size: larger;
-    z-index: 100;
+    z-index: 110;
 }
 
 .container {
-    width: calc(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 60px;
+    width: 100dvw;
+    height: 70dvh;
     font-size: small;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 .sidebarBtn>button,
@@ -81,7 +92,8 @@ main {
     height: 100%;
     width: 100%;
     color: white;
-    background-color: var(--bg-black);
+    background-color: var(--bg-black-op);
+    backdrop-filter: blur(0.5rem);
 
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -103,6 +115,7 @@ main {
 .sideNew {
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-black);
 }
 
 .newChat {
@@ -131,7 +144,7 @@ main {
 .basic {
     position: relative;
     z-index: 50;
-    width: 100%;
+    width: 70dvw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -165,6 +178,7 @@ main {
     border-radius: 0.25rem;
     display: grid;
     font-size: smaller;
+
     &:hover {
         border: 1px solid rgb(147, 0, 205);
         box-shadow: 0 0 15px rgb(240, 126, 255);
@@ -178,19 +192,22 @@ main {
 .inputBar {
     display: flex;
     flex-direction: column;
-    min-width: calc(90%);
+    width: 70dvw;
     max-height: 20rem;
     position: fixed;
-    bottom: 20px;
-    left: calc(5%);
+    bottom: 1rem;
+    left: calc(15.25%);
     padding: 1rem;
     border-radius: 1rem;
     background-color: var(--bg-head);
     border: 1px solid var(--bg-main);
+    z-index: 100;
 }
-.userInputDiv{
-    max-height: 15rem;
+
+.userInputDiv {
+    max-height: 16rem;
     overflow-y: auto;
+    scrollbar-width: none;
 }
 
 #userInput {
@@ -209,18 +226,28 @@ main {
     justify-content: space-between;
 }
 
-@media(height > 750px){
-    .basic{
-        top: 5rem;
-    }
+.footnote {
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(1rem);
+    width: 100%;
+    height: 1rem;
+    z-index: 200;
 }
-@media(height>950px){
-    .basic{
-        margin-top: 10rem;
-    }
+
+.message.user {
+    background-color: var(--bg-main);
+    padding: 0.5rem;
+    border-radius: var(--user-msg-br);
+    margin-bottom: 0.5rem;
+    transform: translateX(100);
 }
-@media(height>1150px){
-    .basic{
-        margin-top:15rem;
-    }
+
+.message.ai {
+    background-color: var(--bg-main);
+    padding: 0.5rem;
+    border-radius: var(--ai-msg-br);
+    width: calc(100%);
+    margin-bottom: 1rem;
 }
